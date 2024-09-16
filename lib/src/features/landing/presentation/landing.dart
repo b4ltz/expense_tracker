@@ -1,3 +1,4 @@
+import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/calendar.dart';
 import 'package:expense_tracker/src/features/landing/presentation/widgets/top_navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -21,14 +22,13 @@ class _LandingPageState extends State<LandingPage>
   Widget build(BuildContext context) {
     return Column(
       children: [
-         TransAppBar(tabController: _tabController,),
-        
+        TransAppBar(tabController: _tabController),
         Container(),
         Expanded(
           child: TabBarView(
             controller: _tabController,
             children: [
-              Container(),
+              const Calendar(),
               Container(),
               Container(),
               Container(),

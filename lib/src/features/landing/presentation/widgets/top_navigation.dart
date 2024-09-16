@@ -58,7 +58,57 @@ class TransAppBar extends StatelessWidget {
             Tab(child: Text('Summary')),
             Tab(child: Text('Description')),
           ],
-        )
+        ),
+        const Row(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Income',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Text(
+                    '0.00',
+                    style: TextStyle(fontSize: 14, color: Colors.blue),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Exp.',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Text(
+                    '16,351.00',
+                    style: TextStyle(fontSize: 14, color: Colors.red),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Total',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                  Text(
+                    '-16,351.00',
+                    style: TextStyle(fontSize: 14),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const Divider(height: 2,),
       ],
     );
   }
