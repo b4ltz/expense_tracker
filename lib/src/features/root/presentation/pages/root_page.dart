@@ -1,5 +1,6 @@
 import 'package:expense_tracker/src/features/accounts/presentation/accounts.dart';
 import 'package:expense_tracker/src/features/landing/presentation/landing.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/bloc/calendar_bloc.dart';
 import 'package:expense_tracker/src/features/root/presentation/bloc/bottom_nav_cubit.dart';
 import 'package:expense_tracker/src/features/root/presentation/widgets/bottom_navigation.dart';
 import 'package:expense_tracker/src/features/settings/presentation/settings.dart';
@@ -14,7 +15,8 @@ class DashboardPage extends StatefulWidget {
   State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> with SingleTickerProviderStateMixin{
+class _DashboardPageState extends State<DashboardPage>
+    with SingleTickerProviderStateMixin {
   late final TabController _tabController;
 
   @override
@@ -22,23 +24,27 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
     super.initState();
     _tabController = TabController(length: 4, vsync: this);
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => BottomNavigationCubit(),
-      child:  SafeArea(
+      child: SafeArea(
         child: Scaffold(
           body: TabBarView(
             controller: _tabController,
-            children: const [
-              LandingPage(),
-              StatsPage(),
-              AccountsPage(),
-              SettingsPage(),
+            children:  [
+              BlocProvider(
+                create: (context) => CalendarBloc(),
+                child: const LandingPage(),
+              ),
+              const StatsPage(),
+              const AccountsPage(),
+              const SettingsPage(),
             ],
           ),
-          bottomNavigationBar:  DashboardBottomNavigation(tabController: _tabController),
+          bottomNavigationBar:
+              DashboardBottomNavigation(tabController: _tabController),
         ),
       ),
     );

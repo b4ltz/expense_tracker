@@ -1,4 +1,8 @@
+import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/bloc/calendar_bloc.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/bloc/calendar_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 
 class TransAppBar extends StatelessWidget {
   final TabController tabController;
@@ -37,14 +41,27 @@ class TransAppBar extends StatelessWidget {
         Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                context
+                    .read<CalendarBloc>()
+                    .add(const CalendarPrevMonthPressed());
+              },
               icon: const Icon(Icons.chevron_left),
             ),
-            const Expanded(
-              child: Center(child: Text('Sept 2024')),
+            Expanded(
+              child: Center(child: BlocBuilder<CalendarBloc, CalendarState>(
+                builder: (context, state) {
+                  final f = DateFormat('MMMM yyyy');
+                  return Text(f.format(state.selectedDate));
+                },
+              )),
             ),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                context
+                    .read<CalendarBloc>()
+                    .add(const CalendarNextMonthPressed());
+              },
               icon: const Icon(Icons.chevron_right),
             ),
           ],
@@ -108,7 +125,9 @@ class TransAppBar extends StatelessWidget {
             ),
           ],
         ),
-        const Divider(height: 2,),
+        const Divider(
+          height: 2,
+        ),
       ],
     );
   }

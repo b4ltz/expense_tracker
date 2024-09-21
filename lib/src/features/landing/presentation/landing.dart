@@ -23,7 +23,6 @@ class _LandingPageState extends State<LandingPage>
     return Column(
       children: [
         TransAppBar(tabController: _tabController),
-        Container(),
         Expanded(
           child: TabBarView(
             controller: _tabController,
