@@ -1,6 +1,10 @@
 import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/calendar.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/cubit/selected_date_cubit.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/daily/bloc/daily_bloc.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/daily/daily.dart';
 import 'package:expense_tracker/src/features/landing/presentation/widgets/top_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -25,10 +29,11 @@ class _LandingPageState extends State<LandingPage>
         TransAppBar(tabController: _tabController),
         Expanded(
           child: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
             controller: _tabController,
             children: [
               const Calendar(),
-              Container(),
+              const Daily(),
               Container(),
               Container(),
               Container(),

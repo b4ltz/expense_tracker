@@ -20,18 +20,24 @@ mixin _$CalendarEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() nextMonthPressed,
     required TResult Function() prevMonthPressed,
+    required TResult Function(DateTime date) onChangeDate,
+    required TResult Function(DateTime date) daySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? nextMonthPressed,
     TResult? Function()? prevMonthPressed,
+    TResult? Function(DateTime date)? onChangeDate,
+    TResult? Function(DateTime date)? daySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? nextMonthPressed,
     TResult Function()? prevMonthPressed,
+    TResult Function(DateTime date)? onChangeDate,
+    TResult Function(DateTime date)? daySelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +45,24 @@ mixin _$CalendarEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(CalendarNextMonthPressed value) nextMonthPressed,
     required TResult Function(CalendarPrevMonthPressed value) prevMonthPressed,
+    required TResult Function(CalendarOnDateChange value) onChangeDate,
+    required TResult Function(CalendarDaySelected value) daySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CalendarNextMonthPressed value)? nextMonthPressed,
     TResult? Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult? Function(CalendarOnDateChange value)? onChangeDate,
+    TResult? Function(CalendarDaySelected value)? daySelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CalendarNextMonthPressed value)? nextMonthPressed,
     TResult Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult Function(CalendarOnDateChange value)? onChangeDate,
+    TResult Function(CalendarDaySelected value)? daySelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -132,6 +144,8 @@ class _$CalendarNextMonthPressedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() nextMonthPressed,
     required TResult Function() prevMonthPressed,
+    required TResult Function(DateTime date) onChangeDate,
+    required TResult Function(DateTime date) daySelected,
   }) {
     return nextMonthPressed();
   }
@@ -141,6 +155,8 @@ class _$CalendarNextMonthPressedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? nextMonthPressed,
     TResult? Function()? prevMonthPressed,
+    TResult? Function(DateTime date)? onChangeDate,
+    TResult? Function(DateTime date)? daySelected,
   }) {
     return nextMonthPressed?.call();
   }
@@ -150,6 +166,8 @@ class _$CalendarNextMonthPressedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? nextMonthPressed,
     TResult Function()? prevMonthPressed,
+    TResult Function(DateTime date)? onChangeDate,
+    TResult Function(DateTime date)? daySelected,
     required TResult orElse(),
   }) {
     if (nextMonthPressed != null) {
@@ -163,6 +181,8 @@ class _$CalendarNextMonthPressedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(CalendarNextMonthPressed value) nextMonthPressed,
     required TResult Function(CalendarPrevMonthPressed value) prevMonthPressed,
+    required TResult Function(CalendarOnDateChange value) onChangeDate,
+    required TResult Function(CalendarDaySelected value) daySelected,
   }) {
     return nextMonthPressed(this);
   }
@@ -172,6 +192,8 @@ class _$CalendarNextMonthPressedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CalendarNextMonthPressed value)? nextMonthPressed,
     TResult? Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult? Function(CalendarOnDateChange value)? onChangeDate,
+    TResult? Function(CalendarDaySelected value)? daySelected,
   }) {
     return nextMonthPressed?.call(this);
   }
@@ -181,6 +203,8 @@ class _$CalendarNextMonthPressedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CalendarNextMonthPressed value)? nextMonthPressed,
     TResult Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult Function(CalendarOnDateChange value)? onChangeDate,
+    TResult Function(CalendarDaySelected value)? daySelected,
     required TResult orElse(),
   }) {
     if (nextMonthPressed != null) {
@@ -249,6 +273,8 @@ class _$CalendarPrevMonthPressedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() nextMonthPressed,
     required TResult Function() prevMonthPressed,
+    required TResult Function(DateTime date) onChangeDate,
+    required TResult Function(DateTime date) daySelected,
   }) {
     return prevMonthPressed();
   }
@@ -258,6 +284,8 @@ class _$CalendarPrevMonthPressedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? nextMonthPressed,
     TResult? Function()? prevMonthPressed,
+    TResult? Function(DateTime date)? onChangeDate,
+    TResult? Function(DateTime date)? daySelected,
   }) {
     return prevMonthPressed?.call();
   }
@@ -267,6 +295,8 @@ class _$CalendarPrevMonthPressedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? nextMonthPressed,
     TResult Function()? prevMonthPressed,
+    TResult Function(DateTime date)? onChangeDate,
+    TResult Function(DateTime date)? daySelected,
     required TResult orElse(),
   }) {
     if (prevMonthPressed != null) {
@@ -280,6 +310,8 @@ class _$CalendarPrevMonthPressedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(CalendarNextMonthPressed value) nextMonthPressed,
     required TResult Function(CalendarPrevMonthPressed value) prevMonthPressed,
+    required TResult Function(CalendarOnDateChange value) onChangeDate,
+    required TResult Function(CalendarDaySelected value) daySelected,
   }) {
     return prevMonthPressed(this);
   }
@@ -289,6 +321,8 @@ class _$CalendarPrevMonthPressedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(CalendarNextMonthPressed value)? nextMonthPressed,
     TResult? Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult? Function(CalendarOnDateChange value)? onChangeDate,
+    TResult? Function(CalendarDaySelected value)? daySelected,
   }) {
     return prevMonthPressed?.call(this);
   }
@@ -298,6 +332,8 @@ class _$CalendarPrevMonthPressedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(CalendarNextMonthPressed value)? nextMonthPressed,
     TResult Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult Function(CalendarOnDateChange value)? onChangeDate,
+    TResult Function(CalendarDaySelected value)? daySelected,
     required TResult orElse(),
   }) {
     if (prevMonthPressed != null) {
@@ -309,4 +345,333 @@ class _$CalendarPrevMonthPressedImpl
 
 abstract class CalendarPrevMonthPressed implements CalendarEvent {
   const factory CalendarPrevMonthPressed() = _$CalendarPrevMonthPressedImpl;
+}
+
+/// @nodoc
+abstract class _$$CalendarOnDateChangeImplCopyWith<$Res> {
+  factory _$$CalendarOnDateChangeImplCopyWith(_$CalendarOnDateChangeImpl value,
+          $Res Function(_$CalendarOnDateChangeImpl) then) =
+      __$$CalendarOnDateChangeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class __$$CalendarOnDateChangeImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$CalendarOnDateChangeImpl>
+    implements _$$CalendarOnDateChangeImplCopyWith<$Res> {
+  __$$CalendarOnDateChangeImplCopyWithImpl(_$CalendarOnDateChangeImpl _value,
+      $Res Function(_$CalendarOnDateChangeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_$CalendarOnDateChangeImpl(
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CalendarOnDateChangeImpl
+    with DiagnosticableTreeMixin
+    implements CalendarOnDateChange {
+  const _$CalendarOnDateChangeImpl(this.date);
+
+  @override
+  final DateTime date;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CalendarEvent.onChangeDate(date: $date)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CalendarEvent.onChangeDate'))
+      ..add(DiagnosticsProperty('date', date));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CalendarOnDateChangeImpl &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CalendarOnDateChangeImplCopyWith<_$CalendarOnDateChangeImpl>
+      get copyWith =>
+          __$$CalendarOnDateChangeImplCopyWithImpl<_$CalendarOnDateChangeImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() nextMonthPressed,
+    required TResult Function() prevMonthPressed,
+    required TResult Function(DateTime date) onChangeDate,
+    required TResult Function(DateTime date) daySelected,
+  }) {
+    return onChangeDate(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? nextMonthPressed,
+    TResult? Function()? prevMonthPressed,
+    TResult? Function(DateTime date)? onChangeDate,
+    TResult? Function(DateTime date)? daySelected,
+  }) {
+    return onChangeDate?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? nextMonthPressed,
+    TResult Function()? prevMonthPressed,
+    TResult Function(DateTime date)? onChangeDate,
+    TResult Function(DateTime date)? daySelected,
+    required TResult orElse(),
+  }) {
+    if (onChangeDate != null) {
+      return onChangeDate(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CalendarNextMonthPressed value) nextMonthPressed,
+    required TResult Function(CalendarPrevMonthPressed value) prevMonthPressed,
+    required TResult Function(CalendarOnDateChange value) onChangeDate,
+    required TResult Function(CalendarDaySelected value) daySelected,
+  }) {
+    return onChangeDate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CalendarNextMonthPressed value)? nextMonthPressed,
+    TResult? Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult? Function(CalendarOnDateChange value)? onChangeDate,
+    TResult? Function(CalendarDaySelected value)? daySelected,
+  }) {
+    return onChangeDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CalendarNextMonthPressed value)? nextMonthPressed,
+    TResult Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult Function(CalendarOnDateChange value)? onChangeDate,
+    TResult Function(CalendarDaySelected value)? daySelected,
+    required TResult orElse(),
+  }) {
+    if (onChangeDate != null) {
+      return onChangeDate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CalendarOnDateChange implements CalendarEvent {
+  const factory CalendarOnDateChange(final DateTime date) =
+      _$CalendarOnDateChangeImpl;
+
+  DateTime get date;
+
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CalendarOnDateChangeImplCopyWith<_$CalendarOnDateChangeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CalendarDaySelectedImplCopyWith<$Res> {
+  factory _$$CalendarDaySelectedImplCopyWith(_$CalendarDaySelectedImpl value,
+          $Res Function(_$CalendarDaySelectedImpl) then) =
+      __$$CalendarDaySelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime date});
+}
+
+/// @nodoc
+class __$$CalendarDaySelectedImplCopyWithImpl<$Res>
+    extends _$CalendarEventCopyWithImpl<$Res, _$CalendarDaySelectedImpl>
+    implements _$$CalendarDaySelectedImplCopyWith<$Res> {
+  __$$CalendarDaySelectedImplCopyWithImpl(_$CalendarDaySelectedImpl _value,
+      $Res Function(_$CalendarDaySelectedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? date = null,
+  }) {
+    return _then(_$CalendarDaySelectedImpl(
+      null == date
+          ? _value.date
+          : date // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CalendarDaySelectedImpl
+    with DiagnosticableTreeMixin
+    implements CalendarDaySelected {
+  const _$CalendarDaySelectedImpl(this.date);
+
+  @override
+  final DateTime date;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'CalendarEvent.daySelected(date: $date)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'CalendarEvent.daySelected'))
+      ..add(DiagnosticsProperty('date', date));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CalendarDaySelectedImpl &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CalendarDaySelectedImplCopyWith<_$CalendarDaySelectedImpl> get copyWith =>
+      __$$CalendarDaySelectedImplCopyWithImpl<_$CalendarDaySelectedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() nextMonthPressed,
+    required TResult Function() prevMonthPressed,
+    required TResult Function(DateTime date) onChangeDate,
+    required TResult Function(DateTime date) daySelected,
+  }) {
+    return daySelected(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? nextMonthPressed,
+    TResult? Function()? prevMonthPressed,
+    TResult? Function(DateTime date)? onChangeDate,
+    TResult? Function(DateTime date)? daySelected,
+  }) {
+    return daySelected?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? nextMonthPressed,
+    TResult Function()? prevMonthPressed,
+    TResult Function(DateTime date)? onChangeDate,
+    TResult Function(DateTime date)? daySelected,
+    required TResult orElse(),
+  }) {
+    if (daySelected != null) {
+      return daySelected(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(CalendarNextMonthPressed value) nextMonthPressed,
+    required TResult Function(CalendarPrevMonthPressed value) prevMonthPressed,
+    required TResult Function(CalendarOnDateChange value) onChangeDate,
+    required TResult Function(CalendarDaySelected value) daySelected,
+  }) {
+    return daySelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(CalendarNextMonthPressed value)? nextMonthPressed,
+    TResult? Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult? Function(CalendarOnDateChange value)? onChangeDate,
+    TResult? Function(CalendarDaySelected value)? daySelected,
+  }) {
+    return daySelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(CalendarNextMonthPressed value)? nextMonthPressed,
+    TResult Function(CalendarPrevMonthPressed value)? prevMonthPressed,
+    TResult Function(CalendarOnDateChange value)? onChangeDate,
+    TResult Function(CalendarDaySelected value)? daySelected,
+    required TResult orElse(),
+  }) {
+    if (daySelected != null) {
+      return daySelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class CalendarDaySelected implements CalendarEvent {
+  const factory CalendarDaySelected(final DateTime date) =
+      _$CalendarDaySelectedImpl;
+
+  DateTime get date;
+
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CalendarDaySelectedImplCopyWith<_$CalendarDaySelectedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -1,9 +1,21 @@
 
 
 
+import 'dart:ui';
+
+import 'package:flutter/material.dart';
 import 'package:in_date_utils/in_date_utils.dart';
 
 const kWeekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const kWeekDaysISO = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat','Sun'];
+
+
+Color getWeekDayColor(DateTime date) {
+  if (date.weekday == 6) return Colors.blue;
+  if (date.weekday == 7) return Colors.red;
+  return Colors.grey;
+  
+}
 List<DateTime> getCalendarDates(DateTime dt) {
   List<DateTime> value = <DateTime>[];
   DateTime refDate = DateTime(dt.year,dt.month, 1);

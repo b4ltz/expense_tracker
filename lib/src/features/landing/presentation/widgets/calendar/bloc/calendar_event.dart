@@ -11,4 +11,6 @@ part 'calendar_event.freezed.dart';
 class CalendarEvent with _$CalendarEvent {
   const factory CalendarEvent.nextMonthPressed() = CalendarNextMonthPressed;
   const factory CalendarEvent.prevMonthPressed() = CalendarPrevMonthPressed;
+  const factory CalendarEvent.onChangeDate(DateTime date) = CalendarOnDateChange;
+  const factory CalendarEvent.daySelected(DateTime date) = CalendarDaySelected;
 }

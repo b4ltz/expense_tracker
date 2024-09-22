@@ -1,6 +1,8 @@
 import 'package:expense_tracker/src/features/accounts/presentation/accounts.dart';
 import 'package:expense_tracker/src/features/landing/presentation/landing.dart';
 import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/bloc/calendar_bloc.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/cubit/selected_date_cubit.dart';
+import 'package:expense_tracker/src/features/landing/presentation/widgets/daily/bloc/daily_bloc.dart';
 import 'package:expense_tracker/src/features/root/presentation/bloc/bottom_nav_cubit.dart';
 import 'package:expense_tracker/src/features/root/presentation/widgets/bottom_navigation.dart';
 import 'package:expense_tracker/src/features/settings/presentation/settings.dart';
@@ -27,15 +29,36 @@ class _DashboardPageState extends State<DashboardPage>
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => BottomNavigationCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => BottomNavigationCubit(),
+        ),
+        BlocProvider(create: (context) => SelectedMonthCubit()),
+      ],
       child: SafeArea(
         child: Scaffold(
           body: TabBarView(
+            physics: const NeverScrollableScrollPhysics(),
             controller: _tabController,
-            children:  [
-              BlocProvider(
-                create: (context) => CalendarBloc(),
+            children: [
+              MultiBlocProvider(
+                providers: [
+                  BlocProvider(
+                    create: (context) => CalendarBloc(
+                      context.read<SelectedMonthCubit>(),
+                    ),
+                  ),
+                  BlocProvider(
+                    create: (context) {
+                      final bloc = DailyBloc(
+                        context.read<SelectedMonthCubit>(),
+                      );
+                      bloc.add(const DailyEvent.onInitialize());
+                      return bloc;
+                    },
+                  ),
+                ],
                 child: const LandingPage(),
               ),
               const StatsPage(),
