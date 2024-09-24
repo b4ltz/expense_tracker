@@ -11,7 +11,7 @@ part 'daily_state.dart';
 part 'daily_bloc.freezed.dart';
 
 class DailyBloc extends Bloc<DailyEvent, DailyState> {
-  DailyBloc(this._selectedMonth) : super(const DailyState.initial()){
+  DailyBloc() : super(const DailyState.initial()){
     on<_OnNext>(_onNext);
     on<_OnPrev>(_onPrev);
     on<_OnDaySelect>(_onDaySelect);

@@ -1,6 +1,6 @@
-import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/calendar.dart';
-import 'package:expense_tracker/src/features/landing/presentation/widgets/daily/daily.dart';
-import 'package:expense_tracker/src/features/landing/presentation/widgets/top_navigation.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/widgets/calendar/calendar.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/widgets/daily/daily.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/widgets/top_navigation.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
