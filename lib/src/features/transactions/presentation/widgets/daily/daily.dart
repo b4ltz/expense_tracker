@@ -46,7 +46,7 @@ class Daily extends StatelessWidget {
                 // Wait for the completer to complete
                 await completer.future;
 
-                // Cancel the subscription when done to avoid memory leaks
+                // // Cancel the subscription when done to avoid memory leaks
                 subscription.cancel();
               },
               child: GroupedListView<Expense, DateTime>(

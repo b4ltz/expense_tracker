@@ -18,7 +18,7 @@ class MainApp extends StatelessWidget {
 
     final theme = MaterialTheme(textTheme);
     return MaterialApp(
-        theme: brightness == Brightness.light
+        theme: brightness == Brightness.dark
             ? theme.light().copyWith(tabBarTheme: MaterialTheme.tabBarTheme())
             : theme.dark().copyWith(tabBarTheme: MaterialTheme.tabBarTheme()),
         home: const DashboardPage());

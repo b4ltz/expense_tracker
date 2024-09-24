@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:expense_tracker/src/core/utils/usecases/fake_data.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:expense_tracker/src/features/landing/presentation/widgets/cubit/selected_date_cubit.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/widgets/cubit/selected_date_cubit.dart';
 import 'package:expense_tracker/src/shared/models/expense_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -31,11 +31,6 @@ class DailyBloc extends Bloc<DailyEvent, DailyState> {
     return super.close();
   }
 
-  @override
-  void onChange(Change<DailyState> change) {
-    super.onChange(change);
-    print(change);
-  }
 
   FutureOr<void> _onNext(_OnNext event, Emitter<DailyState> emit) async{
     emit(const DailyState.loading());
@@ -67,6 +62,7 @@ class DailyBloc extends Bloc<DailyEvent, DailyState> {
   }
 
   FutureOr<void> _onRefresh(_OnRefresh event, Emitter<DailyState> emit) async{
+    // emit(const DailyState.loading());
     final data = await FakeData.expenseList(_selectedMonth.state);
     emit(DailyState.data(data));
   }
