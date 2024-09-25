@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:expense_tracker/src/shared/models/expense_model.dart';
+import 'package:expense_tracker/src/features/transactions/data/models/expense_model.dart';
 import 'package:faker/faker.dart';
 import 'package:in_date_utils/in_date_utils.dart';
 

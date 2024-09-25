@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:expense_tracker/src/core/utils/usecases/date_utils.dart';
-import 'package:expense_tracker/src/features/transactions/presentation/widgets/daily/bloc/daily_bloc.dart';
-import 'package:expense_tracker/src/shared/models/expense_model.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/daily_tab/bloc/daily_bloc.dart';
+import 'package:expense_tracker/src/features/transactions/data/models/expense_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:grouped_list/grouped_list.dart';

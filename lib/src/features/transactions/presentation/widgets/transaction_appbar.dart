@@ -1,21 +1,21 @@
-import 'package:expense_tracker/src/features/transactions/presentation/widgets/calendar/bloc/calendar_bloc.dart';
-import 'package:expense_tracker/src/features/transactions/presentation/widgets/calendar/bloc/calendar_event.dart';
-import 'package:expense_tracker/src/features/transactions/presentation/widgets/daily/bloc/daily_bloc.dart';
-import 'package:flutter/foundation.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/calendar_tab/bloc/calendar_bloc.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/calendar_tab/bloc/calendar_event.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/cubit/selected_date_cubit.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/daily_tab/bloc/daily_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 
-class TransAppBar extends StatefulWidget {
+class TransactionAppBar extends StatefulWidget {
   final TabController tabController;
 
-  const TransAppBar({super.key, required this.tabController});
+  const TransactionAppBar({super.key, required this.tabController});
 
   @override
-  State<TransAppBar> createState() => _TransAppBarState();
+  State<TransactionAppBar> createState() => _TransactionAppBarState();
 }
 
-class _TransAppBarState extends State<TransAppBar> {
+class _TransactionAppBarState extends State<TransactionAppBar> {
   late final ValueNotifier<int> _index =
       ValueNotifier(widget.tabController.index);
   @override
@@ -67,45 +67,23 @@ class _TransAppBarState extends State<TransAppBar> {
             children: [
               IconButton(
                 onPressed: () {
-                  switch (widget.tabController.index) {
-                    case 0:
-                      context
-                          .read<CalendarBloc>()
-                          .add(const CalendarPrevMonthPressed());
-                      break;
-                    case 1:
-                      context
-                          .read<DailyBloc>()
-                          .add(const DailyEvent.onPrevPage());
-                      break;
-                    default:
-                  }
+                  context.read<SelectedMonthCubit>().prevMonth();
                 },
                 icon: const Icon(Icons.chevron_left),
               ),
               Expanded(
-                child: Center(child: BlocBuilder<CalendarBloc, CalendarState>(
-                  builder: (context, state) {
-                    final f = DateFormat('MMMM yyyy');
-                    return Text(f.format(state.selectedDate));
-                  },
-                )),
+                child: Center(
+                  child: BlocBuilder<SelectedMonthCubit, DateTime>(
+                    builder: (context, state) {
+                      final f = DateFormat('MMMM yyyy');
+                      return Text(f.format(state));
+                    },
+                  ),
+                ),
               ),
               IconButton(
                 onPressed: () {
-                  switch (widget.tabController.index) {
-                    case 0:
-                      context
-                          .read<CalendarBloc>()
-                          .add(const CalendarNextMonthPressed());
-                      break;
-                    case 1:
-                      context
-                          .read<DailyBloc>()
-                          .add(const DailyEvent.onNextPage());
-                      break;
-                    default:
-                  }
+                  context.read<SelectedMonthCubit>().nextMonth();
                 },
                 icon: const Icon(Icons.chevron_right),
               ),

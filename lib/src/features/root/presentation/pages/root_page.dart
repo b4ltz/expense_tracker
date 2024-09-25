@@ -1,8 +1,8 @@
 import 'package:expense_tracker/src/features/accounts/presentation/accounts.dart';
-import 'package:expense_tracker/src/features/landing/presentation/landing.dart';
-import 'package:expense_tracker/src/features/landing/presentation/widgets/calendar/bloc/calendar_bloc.dart';
-import 'package:expense_tracker/src/features/landing/presentation/widgets/cubit/selected_date_cubit.dart';
-import 'package:expense_tracker/src/features/landing/presentation/widgets/daily/bloc/daily_bloc.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/transaction.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/calendar_tab/bloc/calendar_bloc.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/cubit/selected_date_cubit.dart';
+import 'package:expense_tracker/src/features/transactions/presentation/daily_tab/bloc/daily_bloc.dart';
 import 'package:expense_tracker/src/features/root/presentation/bloc/bottom_nav_cubit.dart';
 import 'package:expense_tracker/src/features/root/presentation/widgets/bottom_navigation.dart';
 import 'package:expense_tracker/src/features/settings/presentation/settings.dart';
@@ -31,10 +31,8 @@ class _DashboardPageState extends State<DashboardPage>
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => BottomNavigationCubit(),
-        ),
-        BlocProvider(create: (context) => SelectedMonthCubit()),
+        BlocProvider(create: (context) => BottomNavigationCubit()),
+        BlocProvider(create: (context) => SelectedMonthCubit())
       ],
       child: SafeArea(
         child: Scaffold(
@@ -45,21 +43,19 @@ class _DashboardPageState extends State<DashboardPage>
               MultiBlocProvider(
                 providers: [
                   BlocProvider(
-                    create: (context) => CalendarBloc(
-                      context.read<SelectedMonthCubit>(),
-                    ),
+                    create: (context) =>
+                        CalendarBloc(context.read<SelectedMonthCubit>().state),
                   ),
                   BlocProvider(
                     create: (context) {
-                      final bloc = DailyBloc(
-                        context.read<SelectedMonthCubit>(),
-                      );
+                      final bloc =
+                          DailyBloc(context.read<SelectedMonthCubit>().state);
                       bloc.add(const DailyEvent.onInitialize());
                       return bloc;
                     },
                   ),
                 ],
-                child: const LandingPage(),
+                child: const TransactionPage(),
               ),
               const StatsPage(),
               const AccountsPage(),
