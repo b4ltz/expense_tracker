@@ -10,7 +10,7 @@ abstract interface class AbstractTransactionDataSource {
 class TransactionDataSource implements AbstractTransactionDataSource{
   @override
   Future<List<Expense>> getDailyTransactions(DateTime date) async {
-    final fakeData = FakeData();
+    // final fakeData = FakeData();
 
     return await FakeData.expenseList(date);
   }

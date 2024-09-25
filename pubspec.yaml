@@ -7,6 +7,7 @@ environment:
   sdk: ^3.5.3
 
 dependencies:
+  dartz: ^0.10.1
   equatable: ^2.0.5
   faker: ^2.2.0
   flutter:
@@ -27,6 +28,7 @@ dev_dependencies:
   flutter_lints: ^4.0.0
   build_runner: ^2.4.12
   json_serializable: ^6.8.0
+  mocktail: ^1.0.4
 
 flutter:
   uses-material-design: true
