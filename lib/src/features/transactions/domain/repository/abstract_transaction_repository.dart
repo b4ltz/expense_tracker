@@ -7,6 +7,4 @@ abstract interface class AbstractTransactionRepository {
   ResultFuture<List<Expense>> getDailyTransaction(DateTime date);
   /// Get [Calendar] Transaction of a given month
   ResultFuture<List<CalendarTransaction>> getCalendarTransaction(DateTime date);
-
-  
 }
